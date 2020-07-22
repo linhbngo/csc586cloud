@@ -7,7 +7,8 @@ request = pc.makeRequestRSpec()
 
 tourDescription = \
 """
-This profile provides a two-node set to study SSO. One node will be the LDAP server, and the other node is a client who is to be authenticated using LDAP. 
+This profile provides a three-node set to study NFS/SSO. One node will be the LDAP server, one node will be the NFS server, 
+and the remaining node is an NFS client. Both NFS nodes will be authenticated using LDAP. 
 """
 
 tour = IG.Tour()
@@ -16,7 +17,7 @@ request.addTour(tour)
 prefixForIP = "192.168.1."
 link = request.LAN("lan")
 
-for i in range(2):
+for i in range(3):
   if i == 0:
     node = request.XenVM("ldapserver")    
   else:
